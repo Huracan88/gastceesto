@@ -38,5 +38,19 @@ docker exec -it e3c639d7928d bash
 php artisan migrate --seed
 957b10723c78
 
+# volumen de la carpeta anterior
+/home/administrator/gastceesto
 
-docker exec -u 0 -it 98ac9c978d75 /bin/bash
+
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/gastceesto:/var/www/html --add-host=host.docker.internal:host-gateway gastceesto1
+
+
+docker exec -u 0 -it 5069957e6f1e /bin/bash
+
+
+
+
+
+
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/config.env:/var/www/html/.env -v /home/administrator/gastceesto/app:/var/www/html/app -v /home/administrator/gastceesto/resources:/var/www/html/resources --add-host=host.docker.internal:host-gateway gastceesto1
+
