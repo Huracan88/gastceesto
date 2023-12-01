@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create(['name'=>'Ricardo May','email'=>'ricardo.may@salud.qroo.gob.mx','password'=>'rmay']);
         \App\Models\User::factory()->create(['name'=>'Margarita Che','email'=>'margarita.che@salud.qroo.gob.mx','password'=>'mche']);
         \App\Models\User::factory()->create(['name'=>'Veneralda Rosado','email'=>'veneralda.rosado@salud.qroo.gob.mx','password'=>'vrosado']);
-        \App\Models\User::factory()->create(['name'=>'Norman Angulo','email'=>'norman.angulo@salud.qroo.gob.m','password'=>'nangulo']);
+        \App\Models\User::factory()->create(['name'=>'Norman Angulo','email'=>'norman.angulo@salud.qroo.gob.mx','password'=>'nangulo']);
+        \App\Models\User::factory()->create(['name'=>'Jorge Castillo','email'=>'jorge.castillo.al@salud.qroo.gob.mx','password'=>'jcastillo']);
 
 
 
