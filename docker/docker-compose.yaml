@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  gastceesto-app:
+    build:
+      args:
+        user: gastceesto
+        uid: 1000
+      context: ../
+      dockerfile: ./docker/php.dockerfile
+    image: gastceesto
+    container_name: gastceesto-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    ports:
+      - 8083:80
+    networks:
+      - gastceesto
+
+networks:
+  gastceesto:
+    driver: bridge

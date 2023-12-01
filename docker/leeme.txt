@@ -1,0 +1,56 @@
+https://www.linuxandubuntu.com/home/migrate-docker-containers-to-new-server
+
+# Iniciar el contenedor
+docker-compose up
+
+# Ver los contenedores que estan en ejecucion
+docker ps
+
+# Guardar los cambios
+docker commit 26692e1727f0 gastceesto1
+
+# Exportar el archivo
+docker save gastceesto1 > "D:\wsl\gastceesto1.tar"
+ sudo docker load < gastceesto1.tar
+
+# Subir el archivo al servidor 27 con WINCSP
+
+# Importar el archivo
+sudo docker load < gastceesto1.tar
+
+# Para ejecutar el contenedor se corre el comando (apunta el puerto al 8085)
+docker run -d --name gastceesto -p 8085:80 --add-host=host.docker.internal:host-gateway gastceesto1
+
+# Para ejecutar el contenedor a un archivo env externo
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/config.env:/var/www/html/.env gastceesto1
+
+# Ejecutar con puerto y env personalizado
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/config.env:/var/www/html/.env --add-host=host.docker.internal:host-gateway gastceesto1
+
+# Ejecutar en modo efimero (cuando se cierra el comando termina la ejecucion
+sudo docker run --rm --name gastceesto -p 8085:80 -v /home/administrator/config.env:/var/www/html/.env gastceesto1
+
+# Eliminar el contenedor en ejecucion
+ sudo docker rm gastceesto
+
+# Ejecutar el comando de migraciones
+docker exec -it e3c639d7928d bash
+php artisan migrate --seed
+957b10723c78
+
+# volumen de la carpeta anterior
+/home/administrator/gastceesto
+
+
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/gastceesto:/var/www/html --add-host=host.docker.internal:host-gateway gastceesto1
+
+
+docker exec -u 0 -it 5069957e6f1e /bin/bash
+
+
+
+
+
+
+sudo docker run -d --name gastceesto -p 8085:80 -v /home/administrator/config.env:/var/www/html/.env -v /home/administrator/gastceesto/app:/var/www/html/app -v /home/administrator/gastceesto/resources:/var/www/html/resources --add-host=host.docker.internal:host-gateway gastceesto1
+
