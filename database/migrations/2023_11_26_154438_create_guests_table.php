@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('number');
             $table->string('group',15)->index();
             $table->string('unit',10)->index();
             $table->string('zone',6)->index();
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('years')->index();
             $table->string('name',255);
             $table->enum('status',['pending','registered'])->default('pending')->index();
+            $table->datetime('registered_at')->nullable();
             $table->timestamps();
         });
     }

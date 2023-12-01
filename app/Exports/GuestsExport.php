@@ -12,7 +12,7 @@ class GuestsExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function headings(): array
     {
         return [
-            ['Nómina', 'Unidad','Zona','Empleado','Nombre','Antiguedad','Estado'],
+            ['Nómina','Número' ,'Unidad','Zona','Empleado','Nombre','Antiguedad','Estado','Hora registro'],
         ];
     }
 
@@ -21,6 +21,12 @@ class GuestsExport implements FromCollection, ShouldAutoSize, WithHeadings
     */
     public function collection()
     {
-        return Guest::select('group','unit','zone','employee','name','years','status')->get();
+        return Guest::select('group','number','unit','zone','employee','name','years','status','registered_at')
+                ->orderBy('status','desc')
+                ->orderBy('years','desc')
+                ->orderBy('registered_at','asc')
+                ->orderBy('unit','asc')
+                ->orderBy('name','asc')
+                ->get();
     }
 }

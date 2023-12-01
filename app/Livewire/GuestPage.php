@@ -73,9 +73,11 @@ class GuestPage extends Component
     {
         if($record->status == "pending"){
             $record->status = 'registered';
+            $record->registered_at = \Carbon\Carbon::now();
         }
         elseif($record->status == "registered"){
             $record->status = 'pending';
+            $record->registered_at = null;
         }
 
         $record->save();

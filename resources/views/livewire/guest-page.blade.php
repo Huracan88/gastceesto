@@ -161,6 +161,7 @@
                     <thead>
                         <tr class="h-14 border border-gray-100 rounded bg-rose-800 text-white">
                             <th class="px-2"> Emp. </th>
+                            <th class="px-2"> Num. </th>
                             <th class="px-2"> Nombre </th>
                             <th class="px-2"> Nómina </th>
                             <th class="px-2"> Unidad </th>
@@ -176,6 +177,7 @@
 
                     <tr tabindex="0" class="focus:outline-none h-7 border border-gray-100 rounded">
                         <td class="px-2"> {{$r->employee}} </td>
+                        <td class="px-2">No. {{$r->number}} </td>
                         <td class="px-2"> {{$r->name}} </td>
                         <td class="px-2 text-center"> {{$r->group}} </td>
                         <td class="px-2 text-center"> {{$r->unit}} </td>
